@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <unistd.h> // Para o uso da função usleep (microsleep)
+#include <unistd.h>   //  usleep (microsleep activation)
 #include <ncurses.h>
 
 #define WIDTH 20
@@ -42,12 +42,12 @@ void setup() {
 void draw() {
     clear();
 
-    // Drawing the top wall
+    // Top Wall
     for (int i = 0; i < WIDTH + 2; i++)
         printw("#");
     printw("\n");
 
-    // Drawing the middle section
+    // Middle Wall
     for (int i = 0; i < HEIGHT; i++) {
         printw("#");
         for (int j = 0; j < WIDTH; j++) {
@@ -67,7 +67,7 @@ void draw() {
         printw("#\n");
     }
 
-    // Bottom wall
+    // Bottom Wall
     for (int i = 0; i < WIDTH + 2; i++)
         printw("#");
     printw("\n");
@@ -75,7 +75,7 @@ void draw() {
     // Score
     printw("Score: %d\n", score);
 
-    refresh(); // Refresh the screen
+    refresh(); // Refresh screen
 }
 
 void input() {
@@ -138,7 +138,7 @@ void logic() {
 
     // Fruit collision
     if (snake.body[0].x == fruit.x && snake.body[0].y == fruit.y) {
-        // Increase snake's length
+        // Increase snakwe length
         snake.length++;
         score += 10;
 
@@ -150,7 +150,7 @@ void logic() {
 
 int main() {
     initscr(); // Initialize ncurses
-    noecho(); // Don't echo input characters
+    noecho(); // Dont echo input characters
     curs_set(0); // Hide cursor
 
     setup();
